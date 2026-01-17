@@ -1,44 +1,63 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Card, Container } from "react-bootstrap";
+// src/App.js
+import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navbar, Container, Card, Row, Col } from 'react-bootstrap';
 
-export default function App() {
-
-  const product = {
-    name: "Casque Bluetooth",
-    price: "350 MAD",
-    description: "Casque sans fil avec une excellente qualité sonore",
-    // Image en ligne fiable via HTTPS
-    image: "https://www.w3schools.com/w3images/lights.jpg"
-  };
-
-  const firstName = "Lahoucine"; // ou "" pour tester "Hello, there!"
-
+function App() {
   return (
-    <Container className="mt-5 text-center">
-      <Card style={{ width: "18rem", margin: "auto", padding: "10px" }}>
-        <img
-          src={product.image}
-          alt={product.name}
-          style={{ width: "100%", borderRadius: "10px" }}
-        />
-        <Card.Body>
-          <h5>{product.name}</h5>
-          <p>Price: {product.price}</p>
-          <p>{product.description}</p>
-        </Card.Body>
-      </Card>
+    <>
+      <div className="App">
+        {/* Barre de navigation */}
+        <Navbar bg="dark" variant="dark">
+          <Container>
+            <Navbar.Brand href="#">Checkpoint React</Navbar.Brand>
+          </Container>
+        </Navbar>
 
-      <h3 className="mt-3">
-        Hello, {firstName ? firstName : "there!"}
-      </h3>
+        {/* En-tête */}
+        <header className="text-center my-4">
+          <h1>Bienvenue sur mon projet React</h1>
+          <p>Ce projet utilise React et React-Bootstrap</p>
+        </header>
 
-      {firstName && (
-        <img
-          src="https://www.w3schools.com/w3images/lights.jpg"
-          alt="user"
-          style={{ marginTop: "15px", borderRadius: "50%", width: "150px" }}
-        />
-      )}
-    </Container>
+        {/* Trois cartes */}
+        <Container>
+          <Row>
+            <Col md={4}>
+              <Card className="mb-4">
+                <Card.Body>
+                  <Card.Title>Carte 1</Card.Title>
+                  <Card.Text>
+                    Ceci est la description de la première carte.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card className="mb-4">
+                <Card.Body>
+                  <Card.Title>Carte 2</Card.Title>
+                  <Card.Text>
+                    Ceci est la description de la deuxième carte.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card className="mb-4">
+                <Card.Body>
+                  <Card.Title>Carte 3</Card.Title>
+                  <Card.Text>
+                    Ceci est la description de la troisième carte.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    </>
   );
 }
+
+export default App;
